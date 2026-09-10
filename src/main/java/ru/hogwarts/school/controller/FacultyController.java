@@ -18,7 +18,7 @@ public class FacultyController {
 
     @PostMapping
     public Long createFaculty(@RequestBody Faculty faculty) {
-        return facultyService.addFaculty(faculty);
+        return facultyService.addFaculty(faculty).getId();
     }
 
     @GetMapping("/{id}")
@@ -44,5 +44,10 @@ public class FacultyController {
     @GetMapping("/filter/color")
     public Collection<Faculty> getFacultiesByColor(@RequestParam String color) {
         return facultyService.findByColor(color);
+    }
+
+    @GetMapping("/filter/name")
+    public Collection<Faculty> getFacultiesByName(@RequestParam String name) {
+        return facultyService.findByName(name);
     }
 }

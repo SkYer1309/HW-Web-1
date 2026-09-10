@@ -18,7 +18,8 @@ public class StudentController {
 
     @PostMapping
     public Long createStudent(@RequestBody Student student) {
-        return studentService.addStudent(student);
+        // save() возвращает объект, берём из него id
+        return studentService.addStudent(student).getId();
     }
 
     @GetMapping("/{id}")
@@ -44,5 +45,11 @@ public class StudentController {
     @GetMapping("/filter/age")
     public Collection<Student> getStudentsByAge(@RequestParam int age) {
         return studentService.findByAge(age);
+    }
+
+    @GetMapping("/filter/ageBetween")
+    public Collection<Student> getStudentsByAgeBetween(
+            @RequestParam int min, @RequestParam int max) {
+        return studentService.findByAgeBetween(min, max);
     }
 }
