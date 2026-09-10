@@ -11,7 +11,6 @@ public class Student {
     private String name;
     private int age;
 
-    // Связь с факультетом (если нужна — добавишь позже)
     @ManyToOne
     @JoinColumn(name = "faculty_id")
     private Faculty faculty;
