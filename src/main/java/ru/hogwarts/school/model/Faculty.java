@@ -15,7 +15,7 @@ public class Faculty {
     private String color;
 
     @OneToMany(mappedBy = "faculty", cascade = CascadeType.ALL)
-    @JsonIgnore  // чтобы не было бесконечного цикла
+    @JsonIgnore  // предотвращает бесконечный цикл
     private List<Student> students = new ArrayList<>();
 
     public Faculty() {

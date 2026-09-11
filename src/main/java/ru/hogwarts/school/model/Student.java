@@ -14,7 +14,7 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "faculty_id")
-    @JsonIgnore  // чтобы не было бесконечного цикла при сериализации
+    @JsonIgnore  // предотвращает бесконечный цикл при сериализации
     private Faculty faculty;
 
     public Student() {
