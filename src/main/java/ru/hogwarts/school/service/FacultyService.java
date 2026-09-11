@@ -45,13 +45,11 @@ public class FacultyService {
     public Collection<Faculty> findByColor(String color) {
         return facultyRepository.findByColor(color);
     }
-
     // Новый метод: поиск по имени ИЛИ цвету, регистронезависимый
     public Collection<Faculty> findByText(String text) {
         return facultyRepository
                 .findByNameContainingIgnoreCaseOrColorContainingIgnoreCase(text, text);
     }
-
     // Получить студентов факультета
     public Collection<Student> getFacultyStudents(Long facultyId) {
         Faculty faculty = facultyRepository.findById(facultyId).orElse(null);
