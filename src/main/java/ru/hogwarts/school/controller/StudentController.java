@@ -1,11 +1,10 @@
 package ru.hogwarts.school.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.service.StudentService;
 
-
-import ru.hogwarts.school.model.Faculty;
 import java.util.Collection;
 
 @RestController
@@ -20,7 +19,6 @@ public class StudentController {
 
     @PostMapping
     public Long createStudent(@RequestBody Student student) {
-        // save() возвращает объект, берём из него id
         return studentService.addStudent(student).getId();
     }
 
@@ -49,12 +47,14 @@ public class StudentController {
         return studentService.findByAge(age);
     }
 
+    // Новый эндпоинт: фильтрация по диапазону возрастов
     @GetMapping("/filter/ageBetween")
     public Collection<Student> getStudentsByAgeBetween(
             @RequestParam int min, @RequestParam int max) {
         return studentService.findByAgeBetween(min, max);
     }
 
+    // Новый эндпоинт: получить факультет студента
     @GetMapping("/{id}/faculty")
     public Faculty getStudentFaculty(@PathVariable Long id) {
         return studentService.getStudentFaculty(id);

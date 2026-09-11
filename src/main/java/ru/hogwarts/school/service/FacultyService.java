@@ -46,12 +46,13 @@ public class FacultyService {
         return facultyRepository.findByColor(color);
     }
 
-    // ✅ Этот метод должен быть ЗДЕСЬ, а не в StudentService
+    // Новый метод: поиск по имени ИЛИ цвету, регистронезависимый
     public Collection<Faculty> findByText(String text) {
         return facultyRepository
                 .findByNameContainingIgnoreCaseOrColorContainingIgnoreCase(text, text);
     }
 
+    // Получить студентов факультета
     public Collection<Student> getFacultyStudents(Long facultyId) {
         Faculty faculty = facultyRepository.findById(facultyId).orElse(null);
         if (faculty != null) {

@@ -7,10 +7,8 @@ import java.util.Collection;
 
 public interface FacultyRepository extends JpaRepository<Faculty, Long> {
 
-    // Поиск по названию
     Collection<Faculty> findByName(String name);
 
-    // Поиск по цвету
     Collection<Faculty> findByColor(String color);
 
     // Поиск по имени ИЛИ цвету, игнорируя регистр

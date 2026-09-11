@@ -52,12 +52,13 @@ public class FacultyController {
         return facultyService.findByName(name);
     }
 
+    // Новый эндпоинт: поиск факультета по тексту (регистронезависимый)
     @GetMapping("/filter/text")
     public Collection<Faculty> getFacultiesByText(@RequestParam String text) {
         return facultyService.findByText(text);
     }
 
-
+    // Новый эндпоинт: получить студентов факультета
     @GetMapping("/{id}/students")
     public Collection<Student> getFacultyStudents(@PathVariable Long id) {
         return facultyService.getFacultyStudents(id);
