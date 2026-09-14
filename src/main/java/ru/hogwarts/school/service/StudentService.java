@@ -42,12 +42,10 @@ public class StudentService {
         return studentRepository.findByAge(age);
     }
 
-    // Новый метод для диапазона возрастов
     public Collection<Student> findByAgeBetween(int min, int max) {
         return studentRepository.findByAgeBetween(min, max);
     }
 
-    // Получить факультет студента
     public Faculty getStudentFaculty(Long studentId) {
         Student student = studentRepository.findById(studentId).orElse(null);
         if (student != null) {
