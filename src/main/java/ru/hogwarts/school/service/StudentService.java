@@ -7,6 +7,7 @@ import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repository.StudentRepository;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -52,5 +53,18 @@ public class StudentService {
             return student.getFaculty();
         }
         return null;
+    }
+    public long countAllStudents() {
+        return studentRepository.countAllStudents();
+    }
+
+    public Double getAverageAge() {
+        Double average = studentRepository.getAverageAge();
+        // Если студентов нет — AVG вернёт null, возвращаем 0.0
+        return average != null ? average : 0.0;
+    }
+
+    public List<Student> findLastFiveStudents() {
+        return studentRepository.findLastFiveStudents();
     }
 }
