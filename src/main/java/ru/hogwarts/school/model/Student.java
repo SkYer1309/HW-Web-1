@@ -14,7 +14,7 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "faculty_id")
-    @JsonIgnore  // чтобы не было бесконечного цикла при сериализации
+    @JsonIgnore  // предотвращает бесконечный цикл при сериализации
     private Faculty faculty;
 
     public Student() {
@@ -25,7 +25,6 @@ public class Student {
         this.name = name;
         this.age = age;
     }
-
     // Геттеры и сеттеры
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
