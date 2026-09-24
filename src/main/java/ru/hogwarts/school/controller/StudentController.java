@@ -68,15 +68,17 @@ public class StudentController {
         return studentService.countAllStudents();
     }
 
-    // Средний возраст студентов
-    @GetMapping("/averageAge")
-    public Double getAverageAge() {
-        return studentService.getAverageAge();
-    }
-
     // Пять последних студентов
     @GetMapping("/lastFive")
     public List<Student> getLastFiveStudents() {
         return studentService.findLastFiveStudents();
+    }
+    @GetMapping("/names/startsWithA")
+    public List<String> getNamesStartingWithA() {
+        return studentService.getNamesStartingWithA();
+    }
+    @GetMapping("/averageAge")
+    public double getAverageAge() {
+        return studentService.getAverageAge();
     }
 }
