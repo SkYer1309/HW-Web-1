@@ -68,8 +68,6 @@ public class StudentController {
         return studentService.countAllStudents();
     }
 
-
-
     // Пять последних студентов
     @GetMapping("/lastFive")
     public List<Student> getLastFiveStudents() {
