@@ -86,7 +86,6 @@ public class StudentService {
         return studentRepository.countAllStudents();
     }
 
-
     public List<Student> findLastFiveStudents() {
         logger.info("Was invoked method for find last five students");
         return studentRepository.findLastFiveStudents();
