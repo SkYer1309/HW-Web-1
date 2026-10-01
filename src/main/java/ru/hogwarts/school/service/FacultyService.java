@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repository.FacultyRepository;
+import java.util.Comparator;
 
 import java.util.Collection;
 
@@ -80,5 +81,11 @@ public class FacultyService {
             return null;
         }
         return faculty.getStudents();
+    }
+    public String getLongestFacultyName() {
+        return facultyRepository.findAll().stream()
+                .map(Faculty::getName)                    // Получаем названия
+                .max(Comparator.comparingInt(String::length))  // Находим самое длинное
+                .orElse(null);                            // Если факультетов нет — null
     }
 }
